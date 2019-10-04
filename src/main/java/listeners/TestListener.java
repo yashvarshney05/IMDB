@@ -7,7 +7,7 @@ import org.junit.runner.notification.RunListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.CommonUtils;
-//import utils.FileUtil;
+
 
 public class TestListener extends RunListener
 {
@@ -27,9 +27,6 @@ public class TestListener extends RunListener
     {
         super.testFailure(failure);
         String[] splitArr = StringUtils.split(failure.getTestHeader(), "(");
-       /* if (FileUtil.shouldLogFailedTest(splitArr[0]))
-        {
-            FileUtil.dumpFailedTestsToFile(splitArr[0]);
-        }*/
+
     }
 }
