@@ -4,6 +4,7 @@ import common.BaseTestCase;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import pages.OrderSummaryPage;
+import steps.CreditCardSteps;
 import steps.OrderSummarySteps;
 import steps.ShoppingCartSteps;
 import steps.SuccessCreditScenarioSteps;
@@ -20,6 +21,9 @@ public class SuccessCreditScenarioTest extends BaseTestCase {
     @Steps
     OrderSummarySteps orderSummaryStepsObj;
 
+    @Steps
+    CreditCardSteps creditCardStepsObj;
+
     @Test
     public void verify_homepage() {
         String home_page_url = CommonUtils.getBaseUrl();
@@ -33,6 +37,6 @@ public class SuccessCreditScenarioTest extends BaseTestCase {
         orderSummaryStepsObj.verify_shipping_details();
         orderSummaryStepsObj.click_on_continue_button();
         orderSummaryStepsObj.click_on_credit_card();
-
+        creditCardStepsObj.verify_credit_card_screen_is_displayed();
     }
 }
