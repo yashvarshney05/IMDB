@@ -34,7 +34,7 @@ public class OrderSummaryPage extends BasePageObject {
 
     public void orderSummaryDisplayed()
     {
-        switchToFrame(orderSummaryWindow);
+        switchToFrame();
         amount.isDisplayed();
         header.isDisplayed();
         orderId.isDisplayed();

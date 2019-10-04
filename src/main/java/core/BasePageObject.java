@@ -20,9 +20,9 @@ public class BasePageObject extends PageObject {
 
     }
 
-    public void switchToFrame(WebElementFacade webElementFacade)
+    public void switchToFrame()
     {
-        getDriver().switchTo().defaultContent();
         getDriver().switchTo().frame(0);
     }
+
 }
