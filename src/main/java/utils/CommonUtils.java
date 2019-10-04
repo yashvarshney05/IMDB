@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import core.Constants;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,8 @@ public class CommonUtils {
         }
         return baseUrl;
     }
+
+
 
 }
 

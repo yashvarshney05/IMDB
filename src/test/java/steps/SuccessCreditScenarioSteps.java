@@ -10,6 +10,7 @@ public class SuccessCreditScenarioSteps extends ScenarioSteps {
     private BasePageObject basePageObj;
     private HomePage homePageObj;
 
+
     @Step("Open home page")
     public void open_home_page(String url)
     {
