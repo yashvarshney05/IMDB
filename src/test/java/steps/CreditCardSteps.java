@@ -58,4 +58,10 @@ public class CreditCardSteps extends ScenarioSteps {
         assertThat(creditCardPageObj.verifySuccessMsg()).overridingErrorMessage("Success message not present").isTrue();
     }
 
+    @Step("Verify failure message is present")
+    public void verify_failure_message()
+    {
+        assertThat(creditCardPageObj.verifyFailureMessage()).overridingErrorMessage("Failure message not present").isTrue();
+    }
+
 }

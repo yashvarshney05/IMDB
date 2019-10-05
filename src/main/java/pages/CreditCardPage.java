@@ -27,8 +27,18 @@ public class CreditCardPage extends BasePageObject {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElementFacade ok;
 
-    @FindBy(xpath = "//div[contains(text(),'Transaction']")
+    @FindBy(xpath = "//a[@class='btn buy']")
+    private WebElementFacade buyBtnOnHomePage;
+
+    @FindBy(xpath = "//span[contains(text(),'Transaction failed')]")
+    private WebElementFacade failureMsg;
+
+    @FindBy(xpath = "//div[contains(text(),'success')]")
     private WebElementFacade successMsg;
+
+    @FindBy(xpath = "//iframe[contains(@id,'snap')]")
+    private WebElementFacade mainFrame;
+
 
     public boolean verifyCreditCardPage()
     {
@@ -73,7 +83,15 @@ public class CreditCardPage extends BasePageObject {
 
     public boolean verifySuccessMsg()
     {
-        successMsg.waitUntilVisible().expect("Success message is not visible").isVisible();
+        switchToFrame(mainFrame);
+        successMsg.waitUntilVisible().expect("Buy button is not present on home page").isVisible();
         return successMsg.isDisplayed();
+    }
+
+    public boolean verifyFailureMessage()
+    {
+        switchToFrame(mainFrame);
+        failureMsg.waitUntilVisible().expect("Failure message is not visible").isVisible();
+        return failureMsg.isDisplayed();
     }
 }

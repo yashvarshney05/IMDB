@@ -3,17 +3,13 @@ package tests;
 import common.BaseTestCase;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
-import pages.OrderSummaryPage;
 import steps.CreditCardSteps;
 import steps.OrderSummarySteps;
 import steps.ShoppingCartSteps;
 import steps.SuccessCreditScenarioSteps;
 import utils.CommonUtils;
 
-
-
-public class SuccessCreditScenarioTest extends BaseTestCase {
-
+public class FailureCreditScenarioTest extends BaseTestCase {
 
     static String cvv="123";
     static String otp="112233";
@@ -31,10 +27,10 @@ public class SuccessCreditScenarioTest extends BaseTestCase {
     CreditCardSteps creditCardStepsObj;
 
     @Test
-    public void verify_success_scenario() {
+    public void verify_failure_scenario() {
         String home_page_url = CommonUtils.getBaseUrl();
-        String cardNumber="4811 1111 1111 1114";
-        String expiryDate="10/20";
+        String cardNumber="4911 1111 1111 1113";
+        String expiryDate="02/20";
         successCreditScenarioStepsObj.open_home_page(home_page_url);
         successCreditScenarioStepsObj.user_on_click_buy_now();
         shoppingCartStepsObj.verify_Shopping_Cart_IsOpened();
@@ -52,7 +48,6 @@ public class SuccessCreditScenarioTest extends BaseTestCase {
         creditCardStepsObj.click_on_pay_now();
         creditCardStepsObj.user_enter_otp(otp);
         creditCardStepsObj.user_click_on_ok_button();;
-        creditCardStepsObj.verify_success_message();
+        creditCardStepsObj.verify_failure_message();
     }
-
 }

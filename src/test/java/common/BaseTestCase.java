@@ -34,7 +34,7 @@ public class BaseTestCase
     @Managed(uniqueSession = true)
     protected WebDriver driver;
 
-    @ManagedPages(defaultUrl = "http://rocky-qa.hotstar.com/")
+    @ManagedPages(defaultUrl = "https://demo.midtrans.com/")
     protected Pages pages;
 
 
@@ -58,9 +58,9 @@ public class BaseTestCase
 
 
         // Set timeouts
-       // driver.manage().timeouts().implicitlyWait(CommonUtil.getImplicitTimeoutInSecs(), TimeUnit.SECONDS);
-       // driver.manage().timeouts().pageLoadTimeout(CommonUtil.getExplicitTimeoutInSecs(), TimeUnit.SECONDS);
-        //driver.manage().timeouts().setScriptTimeout(CommonUtil.getExplicitTimeoutInSecs(), TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(CommonUtils.getImplicitTimeoutInSecs(), TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(CommonUtils.getExplicitTimeoutInSecs(), TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(CommonUtils.getExplicitTimeoutInSecs(), TimeUnit.SECONDS);
     }
 
     @After

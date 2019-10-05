@@ -39,6 +39,17 @@ public class CommonUtils {
     }
 
 
+    public static int getImplicitTimeoutInSecs()
+    {
+        String timeout = CommonUtils.getEnvProperty("webdriver.timeouts.implicitlywait");
+        return Integer.parseInt(isStringNull(timeout) ? "5000" : timeout) / 1000;
+    }
+
+    public static int getExplicitTimeoutInSecs()
+    {
+        String timeout = CommonUtils.getEnvProperty("webdriver.wait.for.timeout");
+        return Integer.parseInt(isStringNull(timeout) ? "10000" : timeout) / 1000;
+    }
 
 }
 
