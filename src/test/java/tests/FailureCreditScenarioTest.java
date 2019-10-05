@@ -6,7 +6,7 @@ import org.junit.Test;
 import steps.CreditCardSteps;
 import steps.OrderSummarySteps;
 import steps.ShoppingCartSteps;
-import steps.SuccessCreditScenarioSteps;
+import steps.HomePageSteps;
 import utils.CommonUtils;
 
 public class FailureCreditScenarioTest extends BaseTestCase {
@@ -15,7 +15,7 @@ public class FailureCreditScenarioTest extends BaseTestCase {
     static String otp="112233";
 
     @Steps
-    SuccessCreditScenarioSteps successCreditScenarioStepsObj;
+    HomePageSteps successCreditScenarioStepsObj;
 
     @Steps
     ShoppingCartSteps shoppingCartStepsObj;

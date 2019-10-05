@@ -9,7 +9,7 @@ public class BasePageObject extends PageObject {
 
     private static final Logger logger = LoggerFactory.getLogger(BasePageObject.class);
 
-    public  void openUrl(String url)
+    public void openPageUrl(String url)
     {
         try {
             getDriver().get(url);

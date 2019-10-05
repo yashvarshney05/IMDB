@@ -1,2 +1,6 @@
 # goJektest
-This is for 
+mvn clean verify -Dexecute.test=**/*/tests/*Test*
+
+
+
+

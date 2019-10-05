@@ -23,6 +23,7 @@ public class OrderSummarySteps extends ScenarioSteps {
     {
         orderSummaryPageObj.clickOnShippingDetailTab();
     }
+
      @Step("Verify all the shipping details")
      public void verify_shipping_details()
      {
