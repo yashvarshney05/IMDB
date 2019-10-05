@@ -3,7 +3,6 @@ package common;
 import listeners.TestRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.StepEventBus;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -27,9 +26,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 @RunWith(TestRunner.class)
-public class BaseTestCase
+public class BaseCase
 {
-    private static final Logger logger = LoggerFactory.getLogger(BaseTestCase.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseCase.class);
 
     @Managed(uniqueSession = true)
     protected WebDriver driver;

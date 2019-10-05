@@ -1,6 +1,6 @@
 package tests;
 
-import common.BaseTestCase;
+import common.BaseCase;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import steps.CreditCardSteps;
@@ -11,7 +11,7 @@ import utils.CommonUtils;
 
 
 
-public class SuccessCreditScenarioTest extends BaseTestCase {
+public class SuccessCreditScenarioTest extends BaseCase {
 
 
     static String cvv="123";
