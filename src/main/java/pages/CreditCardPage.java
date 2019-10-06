@@ -39,6 +39,8 @@ public class CreditCardPage extends BasePageObject {
     @FindBy(xpath = "//iframe[contains(@id,'snap')]")
     private WebElementFacade mainFrame;
 
+    @FindBy(xpath = "//a[@class='btn buy']")
+    private WebElementFacade buyNowBtn;
 
     public boolean verifyCreditCardPage()
     {
@@ -83,13 +85,15 @@ public class CreditCardPage extends BasePageObject {
 
     public boolean verifySuccessMsg()
     {
-        switchToFrame(mainFrame);
-        successMsg.waitUntilVisible().expect("Buy button is not present on home page").isVisible();
-        return successMsg.isDisplayed();
+       // switchToFrame(mainFrame);
+       // successMsg.waitUntilVisible().expect("Buy button is not present on home page").isVisible();
+       // return successMsg.isDisplayed();
+       return buyNowBtn.isDisplayed();
     }
 
     public boolean verifyFailureMessage()
     {
+        mainFrame.waitUntilVisible().expect("Frame is visible").isVisible();
         switchToFrame(mainFrame);
         failureMsg.waitUntilVisible().expect("Failure message is not visible").isVisible();
         return failureMsg.isDisplayed();

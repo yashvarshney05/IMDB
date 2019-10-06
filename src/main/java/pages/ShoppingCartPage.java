@@ -36,8 +36,13 @@ public class ShoppingCartPage extends BasePageObject {
     @FindBy(xpath = "//input[@value='10220']")
     private WebElementFacade postalCode;
 
+    @FindBy(xpath = "//iframe[contains(@id,'snap')]")
+    private WebElementFacade mainFrame;
+
+
     public boolean isCartContainerDisplayed()
     {
+        cartContainer.waitUntilVisible().expect("Shopping cart is visible").isVisible();
         return cartContainer.isDisplayed();
     }
 
@@ -47,6 +52,7 @@ public class ShoppingCartPage extends BasePageObject {
             checkoutBtn.click();
     }
 
+    //It is assumed that all the necessary info should be mendatory before placing an order
     public boolean checkValidationBeforeOrderPlace()
     {
         if(amount.getValue()!=null && quantity.getValue()!=null && custName.getValue()!=null && email.getValue()!=null

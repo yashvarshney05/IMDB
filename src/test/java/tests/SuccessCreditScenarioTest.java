@@ -37,8 +37,8 @@ public class SuccessCreditScenarioTest extends BaseCase {
         successCreditScenarioStepsObj.open_home_page(home_page_url);
         successCreditScenarioStepsObj.user_on_click_buy_now();
         shoppingCartStepsObj.verify_Shopping_Cart_IsOpened();
-        shoppingCartStepsObj.verify_user_details();
         shoppingCartStepsObj.click_on_checkout_button();
+        shoppingCartStepsObj.verify_user_details();
         orderSummaryStepsObj.verify_order_summary();
         orderSummaryStepsObj.click_on_shipping_details();
         orderSummaryStepsObj.verify_shipping_details();
