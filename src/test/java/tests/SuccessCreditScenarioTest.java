@@ -50,8 +50,8 @@ public class SuccessCreditScenarioTest extends BaseCase {
         creditCardStepsObj.user_enter_cvv_number(cvv);
         creditCardStepsObj.click_on_pay_now();
         creditCardStepsObj.user_enter_otp(otp);
-        creditCardStepsObj.user_click_on_ok_button();;
-//        creditCardStepsObj.verify_success_message();
+        creditCardStepsObj.user_click_on_ok_button();
+        creditCardStepsObj.verify_success_message();
     }
 
 }
