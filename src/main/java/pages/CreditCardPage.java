@@ -83,11 +83,9 @@ public class CreditCardPage extends BasePageObject {
         ok.click();
     }
 
+
     public boolean verifySuccessMsg()
     {
-       // switchToFrame(mainFrame);
-       // successMsg.waitUntilVisible().expect("Buy button is not present on home page").isVisible();
-       // return successMsg.isDisplayed();
        return buyNowBtn.isDisplayed();
     }
 
