@@ -2,6 +2,7 @@ package core;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,12 @@ public class BasePageObject extends PageObject {
     public void switchToFrame(WebElementFacade frameName)
     {
         getDriver().switchTo().frame(frameName);
+    }
+
+    public void selectFromDrownDown(WebElementFacade dropdown)
+    {
+        Select select=new Select(dropdown);
+        select.selectByValue("/search/");
     }
 
 }

@@ -1,6 +1,7 @@
 package steps;
 
 import core.BasePageObject;
+import net.bytebuddy.implementation.auxiliary.AuxiliaryType;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.ImdbHomePage;
@@ -23,5 +24,14 @@ public class ImdbHomePageSteps extends ScenarioSteps {
     {
         assertThat(imdbHomePageObj.verifyImdbIconIsDisplayed()).overridingErrorMessage("Home page is not loaded").isTrue();
     }
+
+    @Step("User click on advanced search box")
+    public void click_on_advanced_search()
+    {
+        imdbHomePageObj.userClickOnAdvancedSearch();
+    }
+
+
+
 
 }
