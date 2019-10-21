@@ -36,15 +36,18 @@ public class ImdbHomePageTest extends BaseCase {
         // get a list of 250 mov ues in descending order
         advanceSearchStepsObj.set_display_order_ZToA();
         advanceSearchStepsObj.click_on_search_button();
-        sortingStepsObj.clickOnSortByTitleAToZ();
-        sortingStepsObj.writeCsv(beforeSortingFilePath);
+        sortingStepsObj.sortUsingLogic();
+        sortingStepsObj.writeCsvWithClass(beforeSortingFilePath);
 
-        //User navigate & reset title search in ascending order
+       // sortingStepsObj.writeCsv(beforeSortingFilePath);
+
+        //User navigate back & reset title search in ascending order
         advanceSearchStepsObj.user_navigate_back();
         advanceSearchStepsObj.set_display_order_AToZ();
         advanceSearchStepsObj.click_on_search_button();
-        //sortingStepsObj.clickOnSortByTitleZToA();
         sortingStepsObj.writeCsv(afterSortingFilePath);
+
+        sortingStepsObj.verify_title_list_comparison();
     }
 
 }

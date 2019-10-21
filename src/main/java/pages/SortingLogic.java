@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class SortingLogic {
+public class SortingLogic implements Comparable<SortingLogic>{
 
     String title;
     String rating;
@@ -37,6 +37,11 @@ public class SortingLogic {
     }
 
 
+    public SortingLogic(String title)
+    {
+        this.title=title;
+
+    }
    public SortingLogic(String title, String rating, String year)
     {
         this.title=title;
@@ -44,11 +49,12 @@ public class SortingLogic {
         this.year=year;
     }
 
-    public SortingLogic(List<WebElementFacade> list)
+    public int compareTo(SortingLogic s)
     {
-
+        return getTitle().compareTo(s.getTitle());
     }
-   public static final Comparator<SortingLogic> SORT_YEAR_ASCENDING =  new Comparator<SortingLogic>(){
+
+  /* public static final Comparator<SortingLogic> SORT_YEAR_ASCENDING =  new Comparator<SortingLogic>(){
         public int compare(SortingLogic o1, SortingLogic o2) {
             int result = o1.getYear().compareTo(o2.getYear());
             return (result);
@@ -74,7 +80,7 @@ public class SortingLogic {
             int result = o1.getRating().compareTo(o2.getRating());
             return (result);
         }
-    };
+    }; */
 
 
 }
