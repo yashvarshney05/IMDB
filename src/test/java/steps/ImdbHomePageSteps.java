@@ -26,9 +26,9 @@ public class ImdbHomePageSteps extends ScenarioSteps {
     }
 
     @Step("User click on advanced search box")
-    public void click_on_advanced_search()
+    public void click_on_advanced_search(String value)
     {
-        imdbHomePageObj.userClickOnAdvancedSearch();
+        imdbHomePageObj.userClickOnAdvancedSearch(value);
     }
 
 

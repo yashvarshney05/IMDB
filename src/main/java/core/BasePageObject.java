@@ -31,10 +31,11 @@ public class BasePageObject extends PageObject {
         getDriver().switchTo().frame(frameName);
     }
 
-    public void selectFromDrownDown(WebElementFacade dropdown)
+    public void selectFromDrownDown(WebElementFacade dropdown,String value )
     {
         Select select=new Select(dropdown);
-        select.selectByValue("/search/");
+        select.selectByValue(value);
+        //select.selectByValue("/search/");
     }
 
 }

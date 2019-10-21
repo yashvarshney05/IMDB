@@ -4,9 +4,9 @@ import core.BasePageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-import javax.management.modelmbean.XMLParseException;
 
-public class ImdbAdvanceSeachPage extends BasePageObject {
+
+public class ImdbAdvanceSearchPage extends BasePageObject {
 
     @FindBy(xpath = "//a[contains(text(),'Advanced Title Search')]")
     private WebElementFacade advanceTitleSearch;
@@ -14,8 +14,11 @@ public class ImdbAdvanceSeachPage extends BasePageObject {
     @FindBy(xpath = "//label[contains(text(),'Top 250')]")
     private WebElementFacade checkBoxToSelectTop250;
 
+    @FindBy(xpath = "")
+    private WebElementFacade select250Count;
     @FindBy(xpath = "//button[contains(text(),'Search')]")
     private WebElementFacade searchBtn;
+
 
     public void clickOnAdvanceTitleSearch()
     {

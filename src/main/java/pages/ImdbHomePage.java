@@ -20,9 +20,9 @@ public class ImdbHomePage extends BasePageObject {
         return homePageLbl.isDisplayed();
     }
 
-    public void userClickOnAdvancedSearch()
+    public void userClickOnAdvancedSearch(String value)
     {
-        selectFromDrownDown(dropDownOnHomePage);
+        selectFromDrownDown(dropDownOnHomePage,value);
     }
 
 
