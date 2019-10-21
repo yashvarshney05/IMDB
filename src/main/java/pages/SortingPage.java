@@ -4,6 +4,7 @@ package pages;
 import core.BasePageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,11 +20,6 @@ public class SortingPage extends BasePageObject {
      @FindBy(linkText = "A-Z")
      WebElementFacade sortByTitleLink;
 
-
-    //ArrayList<SortingLogic> dataAsDisplayedInDefaultView;
-
-    //ArrayList<SortingLogic> expectedOrder=dataAsDisplayedInDefaultView;
-
     public ArrayList<SortingLogic> getLatestMovieReleaseDisplayed() {
 
         ArrayList<SortingLogic> LatestMovieReleaseDisplayed=new ArrayList<SortingLogic>();
@@ -33,23 +29,15 @@ public class SortingPage extends BasePageObject {
     }
 
 
-    public void sortMoviesByTitle()
+    public void sortMoviesByTitleAToZ()
     {
 
-        for(int i=0;i<movieTitleInDefaultView.size();i++) {
-            System.out.println("Before sorting=="+movieTitleInDefaultView.get(i).getText());
-
-        }
-
-            sortByTitleLink.waitUntilEnabled().expect("Element should be enabled").isEnabled();
-            sortByTitleLink.click();
-
-
         Collections.sort(getLatestMovieReleaseDisplayed(), SortingLogic.SORT_TITLE_ASCENDING);
+    }
 
-        for(int i=0;i<movieTitleInDefaultView.size();i++)
-            System.out.println("After sorting"+movieTitleInDefaultView.get(i).getText());
-
+    public void userWriteCsv(String filePath)
+    {
+        CommonUtils.writeCsv(filePath,movieTitleInDefaultView);
 
     }
 }

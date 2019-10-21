@@ -1,12 +1,12 @@
 package utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import au.com.bytecode.opencsv.CSVWriter;
 import core.Constants;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.util.SystemEnvironmentVariables;
@@ -49,6 +49,25 @@ public class CommonUtils {
     {
         String timeout = CommonUtils.getEnvProperty("webdriver.wait.for.timeout");
         return Integer.parseInt(isStringNull(timeout) ? "10000" : timeout) / 1000;
+    }
+
+    public static void writeCsv(String filePath, List<WebElementFacade> data)
+    {
+        File file = new File(filePath);
+        try {
+
+            FileWriter outputfile = new FileWriter(file);
+            CSVWriter writer = new CSVWriter(outputfile);
+            for(int i=0;i<data.size();i++) {
+                String[] a = {data.get(i).getText()};
+                writer.writeNext(a);
+            }
+            writer.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

@@ -35,7 +35,6 @@ public class BasePageObject extends PageObject {
     {
         Select select=new Select(dropdown);
         select.selectByValue(value);
-        //select.selectByValue("/search/");
     }
 
 }

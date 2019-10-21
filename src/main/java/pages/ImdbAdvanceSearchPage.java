@@ -14,10 +14,14 @@ public class ImdbAdvanceSearchPage extends BasePageObject {
     @FindBy(xpath = "//label[contains(text(),'Top 250')]")
     private WebElementFacade checkBoxToSelectTop250;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//select[@id='search-count']")
     private WebElementFacade select250Count;
+
     @FindBy(xpath = "//button[contains(text(),'Search')]")
     private WebElementFacade searchBtn;
+
+    @FindBy(xpath = "//select[@name='sort']")
+    private WebElementFacade sortDropDown;
 
 
     public void clickOnAdvanceTitleSearch()
@@ -33,9 +37,30 @@ public class ImdbAdvanceSearchPage extends BasePageObject {
         checkBoxToSelectTop250.click();
     }
 
+    public void setResultLimit(String limit)
+    {
+        selectFromDrownDown(select250Count,limit);
+    }
+
+    public void setSortOrderZToA()
+    {
+        selectFromDrownDown(sortDropDown,"alpha,desc");
+    }
+
+    public void setSortOrderAToZ()
+    {
+        selectFromDrownDown(sortDropDown,"alpha,asc");
+    }
+
+
     public void clickOnSearchBtn()
     {
         searchBtn.click();
+    }
+
+    public void userNavigateBack()
+    {
+        getDriver().navigate().back();
     }
 
 }

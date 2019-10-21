@@ -8,9 +8,15 @@ public class SortingSteps extends ScenarioSteps {
 
    private SortingPage sortingPageObj;
 
-    @Step("User clicks on sort by title")
-    public void clickOnSortByTitle()
+    @Step("User clicks on sort by title Ascending order")
+    public void clickOnSortByTitleAToZ()
     {
-        sortingPageObj.sortMoviesByTitle();
+        sortingPageObj.sortMoviesByTitleAToZ();
+    }
+
+    @Step("User writes csv")
+    public void writeCsv(String filePath)
+    {
+        sortingPageObj.userWriteCsv(filePath);
     }
 }

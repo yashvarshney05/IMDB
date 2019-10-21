@@ -62,6 +62,13 @@ public class SortingLogic {
         }
     };
 
+    static final Comparator<SortingLogic> SORT_TITLE_DESCENDING =  new Comparator<SortingLogic>(){
+        public int compare(SortingLogic o1, SortingLogic o2) {
+            int result = o2.getTitle().compareTo(o1.getTitle());
+            return (result);
+        }
+    };
+
     static final Comparator<SortingLogic> SORT_RATING_ASCENDING =  new Comparator<SortingLogic>(){
         public int compare(SortingLogic o1, SortingLogic o2) {
             int result = o1.getRating().compareTo(o2.getRating());
