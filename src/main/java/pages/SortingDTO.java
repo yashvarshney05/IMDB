@@ -1,12 +1,6 @@
 package pages;
 
-import net.serenitybdd.core.pages.WebElementFacade;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
-public class SortingLogic implements Comparable<SortingLogic>{
+public class SortingDTO implements Comparable<SortingDTO>{
 
     String title;
     String rating;
@@ -37,46 +31,55 @@ public class SortingLogic implements Comparable<SortingLogic>{
     }
 
 
-    public SortingLogic(String title)
+    public SortingDTO(String title)
     {
         this.title=title;
 
     }
-   public SortingLogic(String title, String rating, String year)
+
+    public SortingDTO(String title, String rating)
+    {
+        this.title=title;
+        this.rating=rating;
+
+    }
+
+
+    public SortingDTO(String title, String rating, String year)
     {
         this.title=title;
         this.rating=rating;
         this.year=year;
     }
 
-    public int compareTo(SortingLogic s)
+    public int compareTo(SortingDTO s)
     {
         return getTitle().compareTo(s.getTitle());
     }
 
-  /* public static final Comparator<SortingLogic> SORT_YEAR_ASCENDING =  new Comparator<SortingLogic>(){
-        public int compare(SortingLogic o1, SortingLogic o2) {
+  /* public static final Comparator<SortingDTO> SORT_YEAR_ASCENDING =  new Comparator<SortingDTO>(){
+        public int compare(SortingDTO o1, SortingDTO o2) {
             int result = o1.getYear().compareTo(o2.getYear());
             return (result);
         }
     };
 
-     static final Comparator<SortingLogic> SORT_TITLE_ASCENDING =  new Comparator<SortingLogic>(){
-        public int compare(SortingLogic o1, SortingLogic o2) {
+     static final Comparator<SortingDTO> SORT_TITLE_ASCENDING =  new Comparator<SortingDTO>(){
+        public int compare(SortingDTO o1, SortingDTO o2) {
             int result = o1.getTitle().compareTo(o2.getTitle());
             return (result);
         }
     };
 
-    static final Comparator<SortingLogic> SORT_TITLE_DESCENDING =  new Comparator<SortingLogic>(){
-        public int compare(SortingLogic o1, SortingLogic o2) {
+    static final Comparator<SortingDTO> SORT_TITLE_DESCENDING =  new Comparator<SortingDTO>(){
+        public int compare(SortingDTO o1, SortingDTO o2) {
             int result = o2.getTitle().compareTo(o1.getTitle());
             return (result);
         }
     };
 
-    static final Comparator<SortingLogic> SORT_RATING_ASCENDING =  new Comparator<SortingLogic>(){
-        public int compare(SortingLogic o1, SortingLogic o2) {
+    static final Comparator<SortingDTO> SORT_RATING_ASCENDING =  new Comparator<SortingDTO>(){
+        public int compare(SortingDTO o1, SortingDTO o2) {
             int result = o1.getRating().compareTo(o2.getRating());
             return (result);
         }

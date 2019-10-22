@@ -2,13 +2,13 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.SortingPage;
+import pages.SortingWithTitlePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SortingSteps extends ScenarioSteps {
+public class SortingWithTitleSteps extends ScenarioSteps {
 
-   private SortingPage sortingPageObj;
+   private SortingWithTitlePage sortingPageObj;
 
     @Step("User clicks on sort by title Ascending order")
     public void sortUsingLogic()

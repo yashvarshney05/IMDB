@@ -52,6 +52,15 @@ public class ImdbAdvanceSearchPage extends BasePageObject {
         selectFromDrownDown(sortDropDown,"alpha,asc");
     }
 
+    public void setRatingDesc(String val)
+    {
+        selectFromDrownDown(sortDropDown,val);
+    }
+
+    public void setRatingAsc(String val)
+    {
+        selectFromDrownDown(sortDropDown,val);
+    }
 
     public void clickOnSearchBtn()
     {

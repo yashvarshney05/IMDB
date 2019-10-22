@@ -6,35 +6,33 @@ import core.BasePageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import utils.CommonUtils;
+import utils.FileUtils;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SortingPage extends BasePageObject {
+public class SortingWithTitlePage extends BasePageObject {
 
 
     @FindBy(xpath = "//h3[@class='lister-item-header']/a")
      List<WebElementFacade> movieTitleInDefaultView;
 
-     @FindBy(linkText = "A-Z")
-     WebElementFacade sortByTitleLink;
 
-    List<SortingLogic> actualTitleList = new ArrayList<SortingLogic>();
+    List<SortingDTO> actualTitleList = new ArrayList<SortingDTO>();
 
     public void sortMoviesByTitleLogicAtoZ()
     {
         for(int i=0;i<movieTitleInDefaultView.size();i++)
         {
-            actualTitleList.add(new SortingLogic(movieTitleInDefaultView.get(i).getText()));
+            actualTitleList.add(new SortingDTO(movieTitleInDefaultView.get(i).getText()));
         }
 
-        actualTitleList=actualTitleList.stream().sorted(Comparator.comparing(SortingLogic::getTitle)).collect(Collectors.toList());
+        actualTitleList=actualTitleList.stream().sorted(Comparator.comparing(SortingDTO::getTitle)).collect(Collectors.toList());
         for(int i=0;i<actualTitleList.size();i++)
             System.out.println("Print int actual list=="+actualTitleList.get(i).getTitle());
     }
@@ -54,7 +52,7 @@ public class SortingPage extends BasePageObject {
 
     public void userWriteCsv(String filePath)
     {
-        CommonUtils.writeCsv(filePath,movieTitleInDefaultView);
+        FileUtils.writeCsv(filePath,movieTitleInDefaultView);
 
     }
 

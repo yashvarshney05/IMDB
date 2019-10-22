@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.ImdbAdvanceSearchPage;
 
@@ -48,6 +49,18 @@ public class AdvanceSearchSteps extends ScenarioSteps {
     public void user_navigate_back()
     {
         imdbAdvanceSeachPageObj.userNavigateBack();
+    }
+
+    @Step("User set rating in desc order")
+    public void set_user_rating_desc(String val)
+    {
+        imdbAdvanceSeachPageObj.setRatingDesc(val);
+    }
+
+    @Step("User search rating Asc order")
+    public void set_user_rating_asc(String val)
+    {
+        imdbAdvanceSeachPageObj.setRatingAsc(val);
     }
 
 

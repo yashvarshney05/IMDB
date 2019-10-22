@@ -51,25 +51,17 @@ public class CommonUtils {
         return Integer.parseInt(isStringNull(timeout) ? "10000" : timeout) / 1000;
     }
 
-    public static void writeCsv(String filePath, List<WebElementFacade> data)
-    {
-        File file = new File(filePath);
-        try {
+    public static String getYear(String year){
 
-            FileWriter outputfile = new FileWriter(file);
-            CSVWriter writer = new CSVWriter(outputfile);
-            for(int i=0;i<data.size();i++) {
-                String[] a = {data.get(i).getText()};
-                writer.writeNext(a);
-            }
-            writer.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+         year="movie(2001)";
+         int i=year.indexOf('(');
+         int j=year.lastIndexOf(')');
+         return year.substring(i+1,j);
+
+    }
 
     }
 
 
-}
+
 
