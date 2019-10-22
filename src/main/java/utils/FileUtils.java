@@ -32,7 +32,7 @@ public class FileUtils {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
             for (int i = 0; i < title.size(); i++) {
-                System.out.println("title.get(i).getText()==="+title.get(i).getText()+"rating.get(i).getText()=="+rating.get(i).getText());
+               // System.out.println("title.get(i).getText()==="+title.get(i).getText()+"rating.get(i).getText()=="+rating.get(i).getText());
 
                 String[] a = {title.get(i).getText(),rating.get(i).getText()};
                 writer.writeNext(a);

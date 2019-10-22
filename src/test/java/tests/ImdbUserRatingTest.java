@@ -21,6 +21,7 @@ public class ImdbUserRatingTest extends BaseCase {
     @Test
     public void verify_sort_by_user_rating()
     {
+        System.out.println("!!!!!!!!Inside sort by Rating!!!!!!!!!!!!!");
         String value="/search/";
         String limit="250";
         String rating_val_desc="user_rating,desc";

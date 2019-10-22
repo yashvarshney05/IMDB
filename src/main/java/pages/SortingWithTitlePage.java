@@ -33,16 +33,16 @@ public class SortingWithTitlePage extends BasePageObject {
         }
 
         actualTitleList=actualTitleList.stream().sorted(Comparator.comparing(SortingDTO::getTitle)).collect(Collectors.toList());
-        for(int i=0;i<actualTitleList.size();i++)
-            System.out.println("Print int actual list=="+actualTitleList.get(i).getTitle());
+        //for(int i=0;i<actualTitleList.size();i++)
+           // System.out.println("Print int actual list=="+actualTitleList.get(i).getTitle());
     }
 
     public boolean verifySortedTitle()
     {
         for(int i=0;i<actualTitleList.size();i++)
         {
-            System.out.println("actualTitleList.get(i).getTitle()=="+actualTitleList.get(i).getTitle());
-            System.out.println("movieTitleInDefaultView.get(i).getText()=="+movieTitleInDefaultView.get(i).getText());
+           // System.out.println("actualTitleList.get(i).getTitle()=="+actualTitleList.get(i).getTitle());
+           // System.out.println("movieTitleInDefaultView.get(i).getText()=="+movieTitleInDefaultView.get(i).getText());
             if(!((actualTitleList.get(i).getTitle()).equals(movieTitleInDefaultView.get(i).getText())))
                 return false;
         }

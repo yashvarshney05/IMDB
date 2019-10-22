@@ -23,6 +23,7 @@ public class ImdbReleaseYearTest extends BaseCase {
     @Test
     public void verify_sort_by_release_year()
     {
+        System.out.println("!!!!!!!!Inside sort by Release!!!!!!!!!!!!!");
         String value="/search/";
         String limit="250";
         String year_val_desc="year,desc";

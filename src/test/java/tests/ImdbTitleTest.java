@@ -23,6 +23,7 @@ public class ImdbTitleTest extends BaseCase {
     @Test
     public void verify_sort_by_title()
     {
+        System.out.println("!!!!!!!!Inside sort by Title!!!!!!!!!!!!!");
         String value="/search/";
         String limit="250";
         String beforeSortingFilePath="reports/beforeTitleSortingAsc.csv";

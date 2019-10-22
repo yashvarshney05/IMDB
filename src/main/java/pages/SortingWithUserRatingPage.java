@@ -43,8 +43,8 @@ public class SortingWithUserRatingPage extends BasePageObject {
                 )
                 .collect(Collectors.toList());
 
-        for(int i=0;i<actualTitleAndRatingList.size();i++)
-            System.out.println("actualTitleAndRatingList.get(i).getRating()=="+actualTitleAndRatingList.get(i).getRating()+"actualTitleAndRatingList.get(i).getRating()===="+actualTitleAndRatingList.get(i).getTitle());
+       // for(int i=0;i<actualTitleAndRatingList.size();i++)
+          //  System.out.println("actualTitleAndRatingList.get(i).getRating()=="+actualTitleAndRatingList.get(i).getRating()+"actualTitleAndRatingList.get(i).getRating()===="+actualTitleAndRatingList.get(i).getTitle());
 
     }
 
@@ -52,8 +52,8 @@ public class SortingWithUserRatingPage extends BasePageObject {
     {
         for(int i=0;i<actualTitleAndRatingList.size();i++)
         {
-            System.out.println("actualTitleAndRatingList.get(i).getRating()=="+actualTitleAndRatingList.get(i).getRating());
-            System.out.println("actualTitleAndRatingList.get(i).getTitle()=="+actualTitleAndRatingList.get(i).getTitle());
+            //System.out.println("actualTitleAndRatingList.get(i).getRating()=="+actualTitleAndRatingList.get(i).getRating());
+            //System.out.println("actualTitleAndRatingList.get(i).getTitle()=="+actualTitleAndRatingList.get(i).getTitle());
             if(!((actualTitleAndRatingList.get(i).getRating()).equals(ratingDefaultView.get(i).getText())))
                 return false;
         }
