@@ -32,16 +32,17 @@ public class SortingWithReleaseYearPage extends BasePageObject {
     {
         for(int i=0;i<yearInDefaultView.size();i++)
         {
-            actualYearList.add(new SortingDTO(yearInDefaultView.get(i).getText(),movieTitleInDefaultView.get(i).getText(),ratingDefaultView.get(i).getText()));
+            actualYearList.add(new SortingDTO(ratingDefaultView.get(i).getText(),movieTitleInDefaultView.get(i).getText(),yearInDefaultView.get(i).getText()));
         }
 
         actualYearList = actualYearList.stream()
                 .sorted(Comparator.comparing(SortingDTO::getYear)
                         .thenComparing(Comparator.comparing(SortingDTO::getTitle))
                         .thenComparing(Comparator.comparing(SortingDTO::getRating))
-
                 )
                 .collect(Collectors.toList());
+        for(int i=0;i<actualYearList.size();i++)
+            System.out.println("actualYearList.get(i).getTitle()=="+actualYearList.get(i).getRating()+"actualYearList.get(i).getYear()===="+actualYearList.get(i).getYear());
 
     }
 
@@ -50,6 +51,8 @@ public class SortingWithReleaseYearPage extends BasePageObject {
         System.out.println("!!!!!!!!!!!!Inside list verification!!!!!!!!!!!!!!");
         for(int i=0;i<actualYearList.size();i++)
         {
+            System.out.println("actualYearList.get(i).getYear()=="+actualYearList.get(i).getYear());
+            System.out.println("yearInDefaultView.get(i).getText()=="+yearInDefaultView.get(i).getText());
             if(!((actualYearList.get(i).getYear()).equals((yearInDefaultView.get(i).getText()))));
                 return false;
         }
@@ -72,8 +75,8 @@ public class SortingWithReleaseYearPage extends BasePageObject {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
             for(int i=0;i<actualYearList.size();i++) {
-                System.out.println("actualYearList.get(i).getYear()=="+actualYearList.get(i).getYear()+"actualYearList.get(i).getTitle()=="+actualYearList.get(i).getTitle());
-                String[] a = {actualYearList.get(i).getTitle(),actualYearList.get(i).getYear()};
+                System.out.println("actualYearList.get(i).getYear()=="+actualYearList.get(i).getRating()+"actualYearList.get(i).getTitle()=="+actualYearList.get(i).getRating());
+                String[] a = {actualYearList.get(i).getRating(),actualYearList.get(i).getYear()};
                 writer.writeNext(a);
             }
             writer.close();
