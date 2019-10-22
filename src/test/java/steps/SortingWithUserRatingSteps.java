@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SortingWithUserRatingSteps extends ScenarioSteps {
 
-    private SortingWithUserRatingPage sortingWithUserRatingPageObj;
+     SortingWithUserRatingPage sortingWithUserRatingPageObj;
 
     @Step("User clicks on sort by rating Ascending order")
     public void sort_using_rating()

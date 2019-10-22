@@ -54,7 +54,7 @@ public class SortingWithUserRatingPage extends BasePageObject {
         {
             System.out.println("actualTitleAndRatingList.get(i).getRating()=="+actualTitleAndRatingList.get(i).getRating());
             System.out.println("actualTitleAndRatingList.get(i).getTitle()=="+actualTitleAndRatingList.get(i).getTitle());
-            if(!((actualTitleAndRatingList.get(i).getTitle()).equals(movieTitleInDefaultView.get(i).getText())))
+            if(!((actualTitleAndRatingList.get(i).getRating()).equals(ratingDefaultView.get(i).getText())))
                 return false;
         }
         return true;
@@ -66,6 +66,7 @@ public class SortingWithUserRatingPage extends BasePageObject {
 
     }
 
+    //This is after method
     public void userWriteCSVWithClass(String filePath)
     {
         File file = new File(filePath);
@@ -74,7 +75,7 @@ public class SortingWithUserRatingPage extends BasePageObject {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
             for(int i=0;i<actualTitleAndRatingList.size();i++) {
-                String[] a = {actualTitleAndRatingList.get(i).getTitle(),actualTitleAndRatingList.get(i).getRating()};
+                String[] a = {actualTitleAndRatingList.get(i).getRating(),actualTitleAndRatingList.get(i).getTitle()};
                 writer.writeNext(a);
             }
             writer.close();

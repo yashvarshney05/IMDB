@@ -2,13 +2,13 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.SortingWithReleaseYear;
+import pages.SortingWithReleaseYearPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SortingWithReleaseYearSteps extends ScenarioSteps {
 
-     SortingWithReleaseYear sortingWithReleaseYearObj;
+     SortingWithReleaseYearPage sortingWithReleaseYearObj;
 
     @Step("User clicks on sort by year Ascending order")
     public void sort_using_year()

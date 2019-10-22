@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SortingWithReleaseYear extends BasePageObject {
+public class SortingWithReleaseYearPage extends BasePageObject {
 
     @FindBy(xpath = "//span[@class='lister-item-year text-muted unbold']")
     List<WebElementFacade> yearInDefaultView;
@@ -47,21 +47,23 @@ public class SortingWithReleaseYear extends BasePageObject {
 
     public boolean verifySortedYear()
     {
+        System.out.println("!!!!!!!!!!!!Inside list verification!!!!!!!!!!!!!!");
         for(int i=0;i<actualYearList.size();i++)
         {
-            System.out.println("actualYearList.get(i).getYear()=="+actualYearList.get(i).getYear()+"CommonUtils.getYear(yearInDefaultView.get(i).getText()))=="+CommonUtils.getYear(yearInDefaultView.get(i).getText()));
-            if(!((actualYearList.get(i).getYear()).equals(CommonUtils.getYear(yearInDefaultView.get(i).getText()))));
+            if(!((actualYearList.get(i).getYear()).equals((yearInDefaultView.get(i).getText()))));
                 return false;
         }
         return true;
     }
 
+    //This method print the values generated on run time sorted values by system
     public void userWriteCsv(String filePath)
     {
-        FileUtils.writeCsv(filePath,yearInDefaultView,movieTitleInDefaultView);
+        FileUtils.writeCsv(filePath,movieTitleInDefaultView,yearInDefaultView);
 
     }
 
+    //This method runs for user generated sorting logic
     public void userWriteCSVWithClass(String filePath)
     {
         File file = new File(filePath);
@@ -70,7 +72,8 @@ public class SortingWithReleaseYear extends BasePageObject {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
             for(int i=0;i<actualYearList.size();i++) {
-                String[] a = {actualYearList.get(i).getYear(),actualYearList.get(i).getTitle()};
+                System.out.println("actualYearList.get(i).getYear()=="+actualYearList.get(i).getYear()+"actualYearList.get(i).getTitle()=="+actualYearList.get(i).getTitle());
+                String[] a = {actualYearList.get(i).getTitle(),actualYearList.get(i).getYear()};
                 writer.writeNext(a);
             }
             writer.close();

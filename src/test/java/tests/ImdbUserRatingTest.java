@@ -3,7 +3,6 @@ package tests;
 import common.BaseCase;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
-import pages.SortingWithReleaseYear;
 import steps.*;
 import utils.CommonUtils;
 
@@ -17,7 +16,7 @@ public class ImdbUserRatingTest extends BaseCase {
     AdvanceSearchSteps advanceSearchStepsObj;
 
     @Steps
-    SortingWithReleaseYearSteps sortingWithReleaseYearStepsObj;
+    SortingWithUserRatingSteps sortingWithUserRatingStepsObj;
 
     @Test
     public void verify_sort_by_user_rating()
@@ -38,16 +37,16 @@ public class ImdbUserRatingTest extends BaseCase {
         // get a list of 250 mov ues in descending order
         advanceSearchStepsObj.set_user_rating_desc(rating_val_desc);
         advanceSearchStepsObj.click_on_search_button();
-        sortingWithReleaseYearStepsObj.sort_using_year();
-        sortingWithReleaseYearStepsObj.writeCsvWithClass(beforeSortingFilePath);
+        sortingWithUserRatingStepsObj.sort_using_rating();
+        sortingWithUserRatingStepsObj.writeCsvWithClass(beforeSortingFilePath);
 
 
         //User navigate back & reset title search in ascending order
         advanceSearchStepsObj.user_navigate_back();
         advanceSearchStepsObj.set_user_rating_asc(rating_val_asc);
         advanceSearchStepsObj.click_on_search_button();
-        sortingWithReleaseYearStepsObj.writeCsv(afterSortingFilePath);
+        sortingWithUserRatingStepsObj.writeCsv(afterSortingFilePath);
 
-        sortingWithReleaseYearStepsObj.verify_year_list_comparison();
+        sortingWithUserRatingStepsObj.verify_rating_list_comparison();
     }
 }
